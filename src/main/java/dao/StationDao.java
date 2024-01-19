@@ -23,4 +23,18 @@ public class StationDao {
             else return null;
         }
     }
+
+    public void saveOrUpdateStation(Station station) {
+        Transaction tx = null;
+        try (Session session = DatabaseUtils.getSessionFactory().getCurrentSession()) {
+            tx = session.beginTransaction();
+            session.saveOrUpdate(station);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
 }

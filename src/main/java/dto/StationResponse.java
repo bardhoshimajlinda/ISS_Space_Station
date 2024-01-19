@@ -9,7 +9,6 @@ import lombok.Setter;
 public class StationResponse {
     protected String message;
     protected  long timestamp;
-
     @JsonProperty("iss_position")
     protected StationPosition position;
 }

@@ -1,5 +1,6 @@
 package entities;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,4 +28,6 @@ public class Station extends BaseEntity {
     protected String title;
     @OneToMany(mappedBy = "station")
     protected List<People> people;
+
+    public Station(){}
 }

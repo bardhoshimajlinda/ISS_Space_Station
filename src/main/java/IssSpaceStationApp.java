@@ -23,7 +23,6 @@ public class IssSpaceStationApp {
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
             if (choice == 1) {
-                // Get iss location and show
                 System.out.println("Show locaiton");
                 stationService.printIssLocation();
             }

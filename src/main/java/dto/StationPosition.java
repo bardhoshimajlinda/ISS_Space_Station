@@ -10,7 +10,7 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StationPosition {
     @JsonProperty("latitude")
-    protected Double lat;
+    protected float lat;
     @JsonProperty("longitude")
-    protected Double lng;
+    protected float lng;
 }
