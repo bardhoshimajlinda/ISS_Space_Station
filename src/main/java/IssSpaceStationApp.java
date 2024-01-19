@@ -1,4 +1,6 @@
+import dao.PeopleDao;
 import dao.StationDao;
+import services.PeopleService;
 import services.StationService;
 import utils.DatabaseUtils;
 
@@ -15,7 +17,7 @@ public class IssSpaceStationApp {
 
         StationService stationService = new StationService(new StationDao());
         stationService.syncDatabaseWithWebService();
-
+        PeopleService peopleService = new PeopleService(new PeopleDao());
         while (true) {
             System.out.println("1 - ISS location");
             System.out.println("2 - People in space");
@@ -28,6 +30,7 @@ public class IssSpaceStationApp {
             }
             else if( choice == 2) {
                 System.out.println("Show people");
+                peopleService.printPeopleInSpace();
             }
             else if (choice == 3){
                 break;
