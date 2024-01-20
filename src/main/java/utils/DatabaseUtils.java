@@ -19,7 +19,7 @@ public class DatabaseUtils {
             Properties prop= new Properties();
             prop.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/iss");
             prop.setProperty(Environment.HBM2DDL_AUTO, "update");
-            prop.setProperty(Environment.SHOW_SQL, "true");
+            prop.setProperty(Environment.SHOW_SQL, "false");
             prop.setProperty(Environment.FORMAT_SQL, "true");
             prop.setProperty(Environment.USER, "root");
             prop.setProperty(Environment.PASS, System.getenv("MYSQL_PSWD"));

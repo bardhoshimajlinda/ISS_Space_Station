@@ -6,6 +6,7 @@ import dao.StationDao;
 import dto.PeopleDto;
 import dto.PersonDto;
 import entities.People;
+import entities.Station;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -44,11 +45,22 @@ public class PeopleService {
                     System.out.println("Number of people in space: " + numberOfPeople);
 
                     JsonNode peopleNode = jsonNode.path("people");
+                    List<People> peopleList = new ArrayList<>();
+
                     for (JsonNode personNode : peopleNode) {
                         String name = personNode.path("name").asText();
                         String craft = personNode.path("craft").asText();
+
+
+                        People person = new People();
+                        person.setFullName(name);
+                        peopleList.add(person);
+
                         System.out.println("Name: " + name + ", Craft: " + craft);
                     }
+
+                    peopleDao.saveOrUpdatePeopleList(peopleList);
+
                 } else {
                     System.out.println("Error retrieving information about people in space.");
                 }
