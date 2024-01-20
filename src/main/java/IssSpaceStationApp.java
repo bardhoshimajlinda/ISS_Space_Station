@@ -18,12 +18,16 @@ public class IssSpaceStationApp {
         StationService stationService = new StationService(new StationDao());
         stationService.syncDatabaseWithWebService();
         PeopleService peopleService = new PeopleService(new PeopleDao());
+
         while (true) {
+
             System.out.println("1 - ISS location");
             System.out.println("2 - People in space");
             System.out.println("3 - Exit");
+
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
+
             if (choice == 1) {
                 System.out.println("Show locaiton");
                 stationService.printIssLocation();
@@ -39,6 +43,5 @@ public class IssSpaceStationApp {
                 System.out.println("Wrong choice");
             }
         }
-
     }
 }
